@@ -1,0 +1,37 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    map<char,int>mp;
+    char j = 'a';
+    for(int i=1;i<=26;i++)
+    {
+       mp.insert({j,i});
+       j++;
+    }
+    int n,q;
+    cin>>n>>q;
+    string s;
+    cin>>s;
+    int ar[n+1];
+    ar[0] = 0;
+    for(int i=1;i<=n;i++)
+    {
+        ar[i] =ar[i-1]+ mp[s[i-1]];
+    }
+    int l,r;
+    while(q--)
+    {
+        cin>>l>>r;
+
+        cout<<ar[r]-ar[l-1]<<endl;
+
+    }
+    return 0;
+}
+
+
