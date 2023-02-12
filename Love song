@@ -1,6 +1,5 @@
 /*Bismillahir Rahmanir Rahim*/
-https://codeforces.com/problemset/problem/1539/B
-Code:
+
 #include<bits/stdc++.h>
 using namespace std;
 int main()
