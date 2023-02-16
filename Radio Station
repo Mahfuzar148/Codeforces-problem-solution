@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+   int n,m;
+   cin>>n>>m;
+   map<string,string>server;
+   for(int i=0;i<n;i++)
+   {
+       string snam,sip;
+       cin>>snam>>sip;
+       server.insert({sip,snam});
+   }
+    map<string,string>file;
+   for(int i=0;i<m;i++)
+   {
+       string fnam,fip;
+       cin>>fnam>>fip;
+       fip.pop_back();
+       cout<<fnam<<" "<<fip<<"; #"<<server[fip]<<endl;
+   }
+
+
+    return 0;
+}
+
