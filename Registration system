@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int n;
+    cin>>n;
+   map<string,int>registration;
+   for(int i=0;i<n;i++)
+   {
+       string name;
+       cin>>name;
+       if(registration[name]==0)
+       {
+           registration[name] = 1;
+           cout<<"OK"<<endl;
+       }
+       else
+       {
+           cout<<name<<registration[name]<<endl;
+           registration[name]++;
+       }
+
+   }
+    return 0;
+}
