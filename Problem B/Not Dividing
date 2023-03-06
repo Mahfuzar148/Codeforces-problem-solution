@@ -1,0 +1,125 @@
+/**بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ */
+/** المؤلف: محفوظ الرحمن */
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+/** Loop */
+#define lpi(n) for(int i=0;i<n;i++)
+#define lpi1(n) for(int i=1;i<n;i++)
+#define lpj(m) for(int j=0;j<m;j++)
+#define lpr(m) for(int j=m-1;j>=0;j--)
+
+#define gcd __gcd
+
+/**STL*/
+#define ll long long
+#define pb push_back
+#define is insert
+#define rev(v) reverse(v.begin(),v.end())
+#define srt(v) sort(v.begin(),v.end())
+#define rsrt(v) sort(v.rbgin(),v.rend())
+#define mne(v) *min_element(v.begin(),v.end())
+#define mxe(v) *max_element(v.begin(),v.end())
+#define cnt(v,a) count(v.begin(),v.end(),a)
+#define ub upper_bound
+#define lb lower_bound
+#define st() set<int>
+
+
+/** Array  */
+#define ar_mne(v,n) *min_element(v,v+n)
+#define ar_mxe(v,n) *max_element(v,v+n)
+#define sz(ar) sizeof(ar)/sizeof(ar[0])
+#define a_cnt(v,n,a) count(v,v+n,a)
+
+
+int lcm(int a,int b)
+{
+    int ans = (a*b)/gcd(a,b);
+    return ans;
+}
+vector<int>Divisor(int n)
+{
+    vector<int>v;
+    int sq = sqrt(n);
+    for(int i=1;i<=sq;i++)
+    {
+        if(n%i==0) v.pb(i);
+
+        if(n/i!=sq) v.pb(n/i);
+    }
+    sort(v.begin(),v.end());
+    return v;
+}
+int frequency(string str,string target)
+{
+    string::size_type pos = 0;
+    int c = 0;
+    while((pos = str.find(target,pos))!=string::npos)
+    {
+        c++;
+        pos = pos +target.size();
+    }
+    return c;
+}
+
+string upper(string str)
+{
+
+        lpi(str.size())
+        {
+            if(islower(str[i]))
+            {
+                str[i] = toupper(str[i]);
+            }
+        }
+
+         return str;
+
+}
+string lower(string str)
+{
+        lpi(str.size())
+        {
+            if(isupper(str[i]))
+            {
+                str[i] = tolower(str[i]);
+            }
+        }
+
+        return str;
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+    int t;
+    cin>>t;
+    while(t--)
+    {
+       int n;
+        cin>>n;
+        int ar[n+5];
+        lpi(n) {
+            cin>>ar[i];
+            if(ar[i]==1) ar[i]++;
+        }
+        lpi(n)
+        {
+            if(ar[i+1]%ar[i]==0) ar[i+1]++;
+        }
+        lpi(n) cout<<ar[i]<<" ";
+        cout<<endl;
+
+    }
+
+
+    return 0;
+
+}
+
+
