@@ -1,0 +1,102 @@
+
+/**بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ */
+/** المؤلف: محفوظ الرحمن */
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+/** Loop */
+#define lpi(n) for(int i=0;i<n;i++)
+#define lpi1(n) for(int i=1;i<n;i++)
+#define lpj(m) for(int j=0;j<m;j++)
+#define lpr(m) for(int j=m-1;j>=0;j--)
+
+/**string input with space */
+#define scan(a) scanf(" %[^\n]",a);
+#define print(s) printf("%s\n",s)
+string getString(string &str)
+{
+    char c;
+    cin>>c;
+    getline(cin,str);
+    str = c + str;
+}
+
+
+#define gcd __gcd
+
+/**STL*/
+#define F first
+#define S second
+#define all(a) (a).begin(),(a).end()
+#define bs(v,a) binary_search(all(v),a)
+#define rall(a) (a).rbegin(),(a).rend()
+#define ll long long
+#define pb push_back
+#define is insert
+#define rev(v) reverse(v.begin(),v.end())
+#define srt(v) sort(v.begin(),v.end())
+#define rsrt(v) sort(v.rbgin(),v.rend())
+#define mne(v) *min_element(v.begin(),v.end())
+#define mxe(v) *max_element(v.begin(),v.end())
+#define cnt(v,a) count(v.begin(),v.end(),a)
+#define ub upper_bound
+#define lb lower_bound
+#define st() set<int>
+
+
+/** Array  */
+#define ar_mne(v,n) *min_element(v,v+n)
+#define ar_mxe(v,n) *max_element(v,v+n)
+#define sz(ar) sizeof(ar)/sizeof(ar[0])
+#define a_cnt(v,n,a) count(v,v+n,a)
+
+
+
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+  int t;
+  cin>>t;
+  while(t--)
+  {
+      int n;
+      cin>>n;
+      int ar[n],m = 0,m1 = 0;
+      bool f = true;
+      lpi(n)
+      {
+           cin>>ar[i];
+         if(ar[i]==2)
+         {
+             m++;
+         }
+      }
+
+      lpi(n)
+      {
+
+         if(ar[i] == 2)
+         {
+            m1 ++;
+         }
+         if(m1*2 ==m)
+         {
+             cout<<i+1<<endl;
+             f = false;
+             break;
+         }
+      }
+      if(f) cout<<-1<<endl;
+  }
+
+
+    return 0;
+
+}
+
+
