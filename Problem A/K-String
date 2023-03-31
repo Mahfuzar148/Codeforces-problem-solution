@@ -1,0 +1,46 @@
+/**بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ */
+/** المؤلف: محفوظ الرحمن */
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{
+   ios_base::sync_with_stdio(false);
+   cin.tie(NULL);
+   cout.tie(NULL);
+   int k;
+   string s;
+   cin>>k;
+   cin>>s;
+  unordered_map<char,int>ump;
+
+   for(auto it :s)
+   {
+       ump[it]++;
+   }
+   string ans ="";
+   for(auto it:ump)
+   {
+      if((it.second%k))
+      {
+          cout<<-1<<endl;
+          return 0;
+      }
+      else
+      {
+          ans = ans + string((it.second/k),it.first);
+      }
+   }
+   for(int i=0;i<k;i++)
+   {
+       cout<<ans;
+   }
+
+   cout<<endl;
+   return 0;
+}
+
+
