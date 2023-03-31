@@ -1,0 +1,61 @@
+
+
+/**بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ */
+/** المؤلف: محفوظ الرحمن */
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+
+    int n;
+    cin>>n;
+    long long ar[n],c=0;
+    long long ans =0,z=0;
+    for(int i=0;i<n;i++)
+    {
+        cin>>ar[i];
+        if(ar[i]<0)
+        {
+            c++;
+            ans = ans + (abs(ar[i])-1);
+        }
+        else if(ar[i]==0)
+        {
+            ans++;
+            z++;
+        }
+        else
+        {
+            if(ar[i]>1)
+            {
+                ans = ans + ar[i]-1;
+            }
+        }
+
+
+    }
+
+    if(c%2==1)
+    {
+        if(z==0){
+        ans = ans + 2;
+        }
+    }
+    cout<<ans<<endl;
+
+
+
+
+
+    return 0;
+
+}
+
+
+
