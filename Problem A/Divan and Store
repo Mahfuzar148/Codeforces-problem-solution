@@ -1,0 +1,225 @@
+
+/**بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ */
+/** المؤلف: محفوظ الرحمن */
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+/** Loop */
+#define lpi(n) for(int i=0;i<n;i++)
+#define lpi1(n) for(int i=1;i<n;i++)
+#define lpj(m) for(int j=0;j<m;j++)
+#define lpr(m) for(int j=m-1;j>=0;j--)
+#define lp(i,n) for(int k=i,k<n;k++)
+
+/**string input with space */
+#define scan(a) scanf(" %[^\n]",a);
+#define print(s) printf("%s\n",s)
+string getString(string &str)
+{
+    char c;
+    cin>>c;
+    getline(cin,str);
+    str = c + str;
+}
+
+
+#define gcd __gcd
+
+/**STL*/
+#define F first
+#define S second
+#define all(a) (a).begin(),(a).end()
+#define bs(v,a) binary_search(all(v),a)
+#define rall(a) (a).rbegin(),(a).rend()
+#define ll long long
+#define pb push_back
+#define is insert
+#define rev(v) reverse(v.begin(),v.end())
+#define srt(v) sort(v.begin(),v.end())
+#define rsrt(v) sort(v.rbgin(),v.rend())
+#define mne(v) *min_element(v.begin(),v.end())
+#define mxe(v) *max_element(v.begin(),v.end())
+#define cnt(v,a) count(v.begin(),v.end(),a)
+#define ub upper_bound
+#define lb lower_bound
+#define st() set<int>
+
+
+/** Array  */
+#define ar_mne(v,n) *min_element(v,v+n)
+#define ar_mxe(v,n) *max_element(v,v+n)
+#define sz(ar) sizeof(ar)/sizeof(ar[0])
+#define a_cnt(v,n,a) count(v,v+n,a)
+
+
+int lcm(int a,int b)
+{
+    int ans = (a*b)/gcd(a,b);
+    return ans;
+}
+vector<int>Divisor(int n)
+{
+    vector<int>v;
+    int sq = sqrt(n);
+    for(int i=1;i<=sq;i++)
+    {
+        if(n%i==0) v.pb(i);
+
+        if(n/i!=sq) v.pb(n/i);
+    }
+    sort(v.begin(),v.end());
+    return v;
+}
+int frequency(string str,string target)
+{
+    string::size_type pos = 0;
+    int c = 0;
+    while((pos = str.find(target,pos))!=string::npos)
+    {
+        c++;
+        pos = pos +target.size();
+    }
+    return c;
+}
+
+string upper(string str)
+{
+
+        lpi(str.size())
+        {
+            if(islower(str[i]))
+            {
+                str[i] = toupper(str[i]);
+            }
+        }
+
+         return str;
+
+}
+string lower(string str)
+{
+        lpi(str.size())
+        {
+            if(isupper(str[i]))
+            {
+                str[i] = tolower(str[i]);
+            }
+        }
+
+        return str;
+}
+bool isvowel(char c)
+{
+    return (c=='A'||c=='a'||c=='E'||c=='e'||c=='I'||c=='i'||c=='O'||c=='o'||c=='U'||c=='u');
+
+}
+vector<long long> prefixSum(int ar[],int n)
+{
+    vector<long long>v(n,0);
+    v[0] = ar[0];
+    for(int j=1;j<n;j++)
+    {
+        v[j] = v[j-1] + ar[j];
+    }
+    return v;
+
+}
+bool prime(int n)
+{
+    if(n<2)return false;
+    if(n<=3)return true;
+    if(n%2==0)return false;
+    for(int i=3;i*i<=n;i+=2)
+    {
+        if(n%i==0)return false;
+    }
+    return true;
+}
+/**
+Sieve of iratosthenes
+*/
+vector<int> generatePrimes(int n) {
+    vector<bool> isPrime(n+1, true);
+    vector<int> primes;
+    isPrime[0] = isPrime[1] = false;
+    for (int i = 2; i <= n; i++) {
+        if (isPrime[i]) {
+            primes.push_back(i);
+            for (int j = i*i; j <= n; j += i) {
+                isPrime[j] = false;
+            }
+        }
+    }
+    return primes;
+}
+/**
+Prime generator function
+*/
+vector<int> primes1(int n)
+{
+    vector<int>v;
+
+
+     for(int i=2;i<=n;i++)
+    {
+        int ck = 1;
+        for(int j = 2;j*j<=i;j++)
+        {
+            if(i%j==0)
+            {
+                ck = 0;
+                break ;
+            }
+        }
+        if(ck){
+           v.push_back(i);
+
+        }
+    }
+    return v;
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+ int t;
+ cin>>t;
+ while(t--)
+ {
+     int n;
+     ll l,r,k;
+     cin>>n>>l>>r>>k;
+     ll sum =0;
+     ll ar[n];
+     lpi(n)
+     {
+         cin>>ar[i];
+     }
+     sort(ar,ar+n);
+     int c = 0;
+     lpi(n)
+     {
+         if(sum<=k&&ar[i]>=l&&ar[i]<=r)
+         {
+             c++;
+             sum = sum + ar[i];
+         }
+     }
+     if(sum>k)
+     {
+         c--;
+     }
+     cout<<c<<endl;
+ }
+
+
+
+    return 0;
+
+}
+
+
