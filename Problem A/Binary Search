@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int n,k;
+    cin>>n>>k;
+    unordered_map<long long,long long>mp;
+    for(int i=0;i<n;i++)
+        {
+            long long x;
+            cin>>x;
+            mp[x] = 1;
+        }
+       for(int i=0;i<k;i++)
+       {
+           long long y;
+           cin>>y;
+           if(mp[y])
+           {
+               cout<<"YES"<<endl;
+           }
+           else
+           {
+               cout<<"NO"<<endl;
+           }
+       }
+       return 0;
+}
