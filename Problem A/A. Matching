@@ -1,0 +1,106 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool digit(string s)
+{
+    bool f = true;
+    for(int i=0;i<s.size();i++)
+    {
+        if(!isdigit(s[i]))
+        {
+            f = false;
+            break;
+        }
+    }
+    return f;
+}
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        int n,sz;
+        n = count(s.begin(),s.end(),'?');
+        sz = s.size();
+
+
+        if(n == 0)
+        {
+            if(s[0] =='0')
+            {
+                 cout<<0<<endl;
+            }
+            else
+            {
+                 cout<<1<<endl;
+            }
+
+        }
+
+        else if(s[0]=='0')
+        {
+            cout<<0<<endl;
+        }
+        else
+        {
+            if(n==1)
+            {
+               if(s[0] == '?')
+               {
+                   cout<<9<<endl;
+               }
+               else
+               {
+                   cout<<10<<endl;
+               }
+            }
+            else if(n==2)
+            {
+                if(s[0]=='?')
+                {
+                    cout<<99-10+1<<endl;
+                }
+                else
+                {
+                    cout<<99-00+1<<endl;
+                }
+            }
+           else if(n==3)
+            {
+                if(s[0]=='?')
+                {
+                    cout<<999-100+1<<endl;
+                }
+                else
+                {
+                    cout<<999-000+1<<endl;
+                }
+            }
+            else if(n==4)
+            {
+                if(s[0]=='?')
+                {
+                    cout<<9999-1000+1<<endl;
+                }
+                else
+                {
+                    cout<<9999-0000+1<<endl;
+                }
+            }
+            else
+            {
+                cout<<99999-10000+1<<endl;
+            }
+        }
+
+
+    }
+
+}
+
+
