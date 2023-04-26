@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+     int t;
+     cin>>t;
+     while(t--)
+     {
+         int n;
+         cin>>n;
+         int ar[n];
+         for(int i=0;i<n;i++) cin>>ar[i];
+         int a = *min_element(ar,ar+n);
+         int b = *max_element(ar,ar+n);
+         long long n1 = count(ar,ar+n,a);
+         long long n2 = count(ar,ar+n,b);
+         long long ans ;
+
+        if(a==b) {
+               ans = n1*(n1-1);
+        }
+        else
+        {
+            ans = n1*n2*2;
+        }
+        cout<<ans<<endl;
+     }
+
+     return 0;
+
+
+}
