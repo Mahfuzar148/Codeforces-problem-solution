@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int q;
+    cin>>q;
+    while(q--)
+    {
+        int n,t;
+        cin>>n>>t;
+        vector<int>v1(n),v2(n);
+        for(int i=0;i<n;i++)
+        {
+           cin>>v1[i];
+        }
+        for(int i=0;i<n;i++)
+        {
+           cin>>v2[i];
+        }
+
+        int mx = INT_MIN,ans = -1;
+        for(int i=0;i<n;i++)
+        {
+            if(t>=(v1[i]+i)&&v2[i]>mx)
+            {
+                ans = i+1;
+                mx = v2[i];
+            }
+        }
+        cout<<ans<<endl;
+    }
+    return 0;
+}
