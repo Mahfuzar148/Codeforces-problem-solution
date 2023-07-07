@@ -1,0 +1,131 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t;
+    cin>>t;
+    vector<int>v,v1;
+    while(t--)
+    {
+        int n,k,x,sum=0;
+        cin>>n>>k>>x;
+        int f = 1,f1=0,f2 = 0;
+        if(k==1&&x==1)
+        {
+            f = 0;
+            f2 = 1;
+        }
+        else if(x!=1&&k>1)
+        {
+            if(x==k)
+            {
+               int a = n/(k-1);
+               int b = n%(k-1);
+               while(a--)
+               {
+                   v.push_back(k-1);
+               }
+               while(b--)
+               {
+                   v.push_back(1);
+               }
+            }
+            else
+            {
+               int a = n/(k);
+               int b = n%(k);
+              // cout<<a<<" "<<b<<endl;
+               while(a--)
+               {
+                   v.push_back(k);
+               }
+               while(b--)
+               {
+                   v.push_back(1);
+               }
+            }
+        }
+        else if(x==1&&k>1)
+        {
+            for(int i=2;i<=k;i++)
+            {
+                if(n%i==0)
+                {
+                    f1 = 1;
+                    int a = n/i;
+                    while(a--)
+                    {
+                        v.push_back(i);
+                    }
+                    break;
+                }
+                if(sum<n)
+                {
+                   // cout<<i<<" ";
+                    sum = sum + i;
+                    v1.push_back(i);
+                }
+            }
+            if(f1!=1)
+            {
+                f = 0;
+            }
+        }
+
+        //cout<<sum<<endl;
+        if((sum < n||sum>n)&&f!=1&&f2 !=1)
+        {
+            sum = 0;
+            v1.clear();
+           if(n%2==1)
+           {
+               if(k>1&&k%2==1)
+               {
+                   sum = sum + k;
+                   v1.push_back(k);
+               }
+               else if(k>1&&k%2==0&&k>2)
+               {
+                   sum = sum + k-1;
+                   v1.push_back(k-1);
+               }
+           }
+           while(sum<n)
+           {
+               sum = sum + 2;
+               v1.push_back(2);
+           }
+        }
+        //cout<<sum<<endl;
+        if(sum==n)
+        {
+            cout<<"YES"<<endl;
+            cout<<v1.size()<<endl;
+            for(auto u : v1)
+            {
+                cout<<u<<" ";
+            }
+            cout<<endl;
+        }
+        else if(f==0)
+        {
+            cout<<"NO"<<endl;
+        }
+        else
+        {
+            cout<<"YES"<<endl;
+            cout<<v.size()<<endl;
+            for(auto u : v)
+            {
+                cout<<u<<" ";
+            }
+            cout<<endl;
+        }
+        v.clear();
+        v1.clear();
+
+    }
+}
